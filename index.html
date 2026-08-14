@@ -3,72 +3,662 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>个人主页 | 你的名字</title>
+  <title>郭晓龙 | 个人主页</title>
   <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+  <nav class="navbar">
+    <div class="container nav-inner">
+      <a href="#" class="nav-logo">郭晓龙</a>
+      <ul class="nav-links">
+        <li><a href="#about">关于我</a></li>
+        <li><a href="#education">教育背景</a></li>
+        <li><a href="#skills">技能</a></li>
+        <li><a href="#research">科研</a></li>
+        <li><a href="#projects">项目</a></li>
+        <li><a href="#awards">荣誉</a></li>
+        <li><a href="#paper">论文</a></li>
+        <li><a href="#contact">联系</a></li>
+      </ul>
+      <button class="nav-toggle" aria-label="菜单">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
   <header class="hero">
-    <div class="container">
-      <h1>你好，我是 你的名字</h1>
-      <p>欢迎来到我的个人主页。这里展示我的简介、项目、技能和联系方式。</p>
-      <div class="buttons">
-        <a href="#about" class="btn btn-primary">关于我</a>
-        <a href="#projects" class="btn btn-secondary">我的项目</a>
+    <div class="hero-bg"></div>
+    <div class="container hero-inner">
+      <div class="hero-text">
+        <span class="hero-greeting">你好，我是</span>
+        <h1 class="hero-name">郭晓龙</h1>
+        <h2 class="hero-title">嵌入式系统开发 &amp; AI算法研究者</h2>
+        <p class="hero-desc">
+          曲阜师范大学通信工程专业，专注于嵌入式系统开发、深度学习算法与计算机视觉研究。
+          具备STM32/GD32/ESP32平台开发经验，精通YOLO系列目标检测算法，
+          拥有丰富的嵌入式项目实践与AI算法落地经验。
+        </p>
+        <div class="hero-meta">
+          <div class="meta-item">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>山东省潍坊市</span>
+          </div>
+          <div class="meta-item">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <span>guoxiaolong28@163.com</span>
+          </div>
+          <div class="meta-item">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <span>18953635446</span>
+          </div>
+        </div>
+        <div class="hero-buttons">
+          <a href="#contact" class="btn btn-primary">联系我</a>
+          <a href="#research" class="btn btn-outline">查看科研成果</a>
+        </div>
       </div>
+      <div class="hero-photo">
+        <div class="photo-frame">
+          <div class="photo-ring"></div>
+          <img src="286c7cc17217b0080c7ce084d8f9ee6.jpg" alt="郭晓龙" />
+        </div>
+        <div class="photo-badge">
+          <span class="badge-num">10+</span>
+          <span class="badge-label">竞赛奖项</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <span>向下滚动</span>
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
     </div>
   </header>
 
-  <main class="container">
-    <section id="about" class="card">
-      <h2>关于我</h2>
-      <p>我是一名热爱技术的开发者，专注于前端开发、网站制作和用户体验设计。我的目标是将创意变成简单、美观且实用的网页应用。</p>
-      <div class="info-grid">
-        <div>
-          <h3>职业</h3>
-          <p>Web 开发者</p>
+  <main>
+    <section id="about" class="section about-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">ABOUT ME</span>
+          <h2>关于我</h2>
+          <p class="section-subtitle">一名致力于嵌入式与AI交叉领域的青年研究者</p>
         </div>
-        <div>
-          <h3>擅长</h3>
-          <p>HTML / CSS / JavaScript / React / Vue</p>
+        <div class="about-grid">
+          <div class="about-card">
+            <div class="about-icon">🎯</div>
+            <h3>研究方向</h3>
+            <p>嵌入式系统开发、深度学习算法优化、计算机视觉（目标检测）、工业物联网应用</p>
+          </div>
+          <div class="about-card">
+            <div class="about-icon">🏆</div>
+            <h3>荣誉奖项</h3>
+            <p>连续两年校一等奖学金，全国竞赛获奖多项，包括计算机设计大赛国三、西门子挑战赛一等奖等</p>
+          </div>
+          <div class="about-card">
+            <div class="about-icon">💡</div>
+            <h3>创新成果</h3>
+            <p>国家发明专利1项（第二作者）、计算机软件著作权2项、EI会议论文1篇（YOLOv8改进方向）</p>
+          </div>
+          <div class="about-card">
+            <div class="about-icon">🔬</div>
+            <h3>实践经验</h3>
+            <p>学院ARM实验室核心成员，大创项目主持人，具备从硬件设计到系统部署的全流程能力</p>
+          </div>
         </div>
-        <div>
-          <h3>爱好</h3>
-          <p>编程、阅读、设计、分享技术</p>
+        <div class="about-stats">
+          <div class="stat-item">
+            <span class="stat-num">3.95</span>
+            <span class="stat-label">GPA / 5.0</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num">2</span>
+            <span class="stat-label">专业排名 / 50</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num">10+</span>
+            <span class="stat-label">竞赛获奖</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num">3</span>
+            <span class="stat-label">知识产权</span>
+          </div>
         </div>
       </div>
     </section>
 
-    <section id="projects" class="card">
-      <h2>我的项目</h2>
-      <div class="project-list">
-        <article>
-          <h3>项目一：个人博客</h3>
-          <p>一个响应式个人博客网站，支持文章分类、标签和搜索功能。</p>
-        </article>
-        <article>
-          <h3>项目二：作品展示</h3>
-          <p>用于展示设计作品与开发案例的 Portfolio 页面。</p>
-        </article>
-        <article>
-          <h3>项目三：在线简历</h3>
-          <p>一个简洁清晰的在线简历页面，方便招聘方快速了解我的技能与经历。</p>
-        </article>
+    <section id="education" class="section education-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">EDUCATION</span>
+          <h2>教育背景</h2>
+          <p class="section-subtitle">扎实的理论基础与优异的学业表现</p>
+        </div>
+        <div class="edu-card">
+          <div class="edu-header">
+            <div class="edu-school">
+              <div class="edu-logo">🎓</div>
+              <div>
+                <h3>曲阜师范大学</h3>
+                <p class="edu-major">通信工程 · 本科</p>
+              </div>
+            </div>
+            <div class="edu-date">2023.09 - 至今</div>
+          </div>
+          <div class="edu-info">
+            <div class="info-row">
+              <span class="info-label">GPA</span>
+              <div class="gpa-bar"><div class="gpa-fill" style="width:79%"><span>3.95 / 5.0</span></div></div>
+            </div>
+            <div class="info-row">
+              <span class="info-label">专业排名</span>
+              <span class="info-value highlight">2 / 50（Top 4%）</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">英语水平</span>
+              <span class="info-value">CET-4：459</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">所获荣誉</span>
+              <span class="info-value">连续两年校一等奖学金 · 优秀团员</span>
+            </div>
+          </div>
+          <div class="edu-courses">
+            <h4>核心专业课程</h4>
+            <div class="course-list">
+              <div class="course-item"><span>高等数学</span><b>98</b></div>
+              <div class="course-item"><span>大学物理</span><b>97</b></div>
+              <div class="course-item"><span>复变函数</span><b>96</b></div>
+              <div class="course-item"><span>数字电路</span><b>96</b></div>
+              <div class="course-item"><span>模拟电路</span><b>95</b></div>
+              <div class="course-item"><span>数字信号处理</span><b>95</b></div>
+              <div class="course-item"><span>信号与系统</span><b>95</b></div>
+              <div class="course-item"><span>数据结构</span><b>94</b></div>
+              <div class="course-item"><span>线性代数</span><b>91</b></div>
+              <div class="course-item"><span>通信原理</span><b>91</b></div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section id="contact" class="card contact-card">
-      <h2>联系我</h2>
-      <p>如果你想与我合作，欢迎通过以下方式联系我：</p>
-      <ul>
-        <li>邮箱：<a href="mailto:your.email@example.com">your.email@example.com</a></li>
-        <li>GitHub / Gitee：<a href="https://gitee.com/yourname" target="_blank" rel="noreferrer">gitee.com/yourname</a></li>
-      </ul>
+    <section id="skills" class="section skills-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">SKILLS</span>
+          <h2>专业技能</h2>
+          <p class="section-subtitle">跨平台开发与多场景嵌入式系统实现能力</p>
+        </div>
+        <div class="skills-grid">
+          <div class="skill-category">
+            <div class="skill-cat-head">
+              <span class="skill-icon">⚙️</span>
+              <h3>嵌入式开发</h3>
+            </div>
+            <div class="skill-list">
+              <div class="skill-item">
+                <div class="skill-label"><span>STM32 系列</span><span>精通</span></div>
+                <div class="skill-bar"><div class="skill-fill" style="width:92%"></div></div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-label"><span>GD32 系列</span><span>熟练</span></div>
+                <div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-label"><span>ESP32 / 树莓派</span><span>熟练</span></div>
+                <div class="skill-bar"><div class="skill-fill" style="width:83%"></div></div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-label"><span>硬件电路设计 (EDA)</span><span>熟练</span></div>
+                <div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div>
+              </div>
+            </div>
+          </div>
+          <div class="skill-category">
+            <div class="skill-cat-head">
+              <span class="skill-icon">🧠</span>
+              <h3>AI 与算法</h3>
+            </div>
+            <div class="skill-list">
+              <div class="skill-item">
+                <div class="skill-label"><span>YOLOv8 目标检测</span><span>精通</span></div>
+                <div class="skill-bar"><div class="skill-fill" style="width:95%"></div></div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-label"><span>PyTorch 深度学习</span><span>熟练</span></div>
+                <div class="skill-bar"><div class="skill-fill" style="width:88%"></div></div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-label"><span>注意力机制 / 特征融合</span><span>精通</span></div>
+                <div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-label"><span>MATLAB 算法仿真</span><span>熟练</span></div>
+                <div class="skill-bar"><div class="skill-fill" style="width:82%"></div></div>
+              </div>
+            </div>
+          </div>
+          <div class="skill-category">
+            <div class="skill-cat-head">
+              <span class="skill-icon">💻</span>
+              <h3>编程与工具</h3>
+            </div>
+            <div class="skill-list">
+              <div class="skill-item">
+                <div class="skill-label"><span>C 语言</span><span>精通</span></div>
+                <div class="skill-bar"><div class="skill-fill" style="width:93%"></div></div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-label"><span>Python</span><span>精通</span></div>
+                <div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-label"><span>Keil / VSCode / CCS</span><span>熟练</span></div>
+                <div class="skill-bar"><div class="skill-fill" style="width:88%"></div></div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-label"><span>边缘计算部署</span><span>熟练</span></div>
+                <div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="skill-tags">
+          <span class="tag">ARM架构</span>
+          <span class="tag">FreeRTOS</span>
+          <span class="tag">物联网 (IoT)</span>
+          <span class="tag">传感器集成</span>
+          <span class="tag">多模态大模型</span>
+          <span class="tag">CBAM / ASFF</span>
+          <span class="tag">损失函数优化</span>
+          <span class="tag">医学影像分析</span>
+          <span class="tag">信号去噪</span>
+          <span class="tag">上位机开发</span>
+          <span class="tag">PCB设计</span>
+          <span class="tag">电磁兼容</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="research" class="section research-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">RESEARCH</span>
+          <h2>科研项目</h2>
+          <p class="section-subtitle">探索前沿技术，解决实际工程问题</p>
+        </div>
+        <div class="research-card">
+          <div class="research-tag">国家发明专利</div>
+          <div class="research-body">
+            <h3>《基于深度学习的单片机通信信号优化方法》</h3>
+            <div class="research-meta">
+              <span>📌 专利申请（第二发明人）</span>
+            </div>
+            <div class="research-content">
+              <h4>研究背景</h4>
+              <p>针对工业单片机无浮点运算单元（FPU）且工作环境电磁噪声大的痛点，研发了一套"零浮点、零乘法"的纯整型信号去噪架构。</p>
+              <h4>核心技术</h4>
+              <ul>
+                <li>利用"移位+异或"等高效逻辑指令进行时序特征提取与高维状态演化</li>
+                <li>引入基于汉明重量的稀疏度正则化机制，保障系统内在稳定性</li>
+                <li>在遭遇突发强噪声时施加阻尼复位，完成纯整型信号的高精度重构输出</li>
+              </ul>
+              <h4>实现成果</h4>
+              <ul>
+                <li>在Keil平台协同实现：差分映射、时序编码、按位演化递归</li>
+                <li>状态稀疏度正则化、条件重构完整链路</li>
+                <li>申请国家发明专利（第二发明人）</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="section projects-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">PROJECTS</span>
+          <h2>项目实践</h2>
+          <p class="section-subtitle">大创项目主持人 · 端-云-端一体化系统</p>
+        </div>
+        <div class="project-main">
+          <div class="project-cover">
+            <div class="cover-pattern"></div>
+            <div class="cover-content">
+              <div class="cover-icon">🌾</div>
+              <span class="cover-badge">大创 · 省级申报</span>
+            </div>
+          </div>
+          <div class="project-info">
+            <span class="project-role">主持人</span>
+            <h3>农智巡检 —— 基于多模态大模型与边缘计算的AIoT智能监测系统</h3>
+            <div class="project-arch">
+              <span class="arch-tag">端-云-端架构</span>
+              <span class="arch-tag">边缘计算</span>
+              <span class="arch-tag">AIoT</span>
+            </div>
+            <div class="project-desc">
+              <p>作为大创主持人，主导"端-云-端"系统架构设计，统筹硬件选型、多传感器集成、边缘计算部署与AI模型研发。</p>
+              <div class="project-highlights">
+                <div class="highlight-item">
+                  <span class="hl-num">01</span>
+                  <div>
+                    <h5>AI模型研发</h5>
+                    <p>完成YOLOv8病虫害检测模型训练，实现微小虫害精准识别</p>
+                  </div>
+                </div>
+                <div class="highlight-item">
+                  <span class="hl-num">02</span>
+                  <div>
+                    <h5>风险预测算法</h5>
+                    <p>RiskTrend风险预测算法开发，灾害风险提前预警</p>
+                  </div>
+                </div>
+                <div class="highlight-item">
+                  <span class="hl-num">03</span>
+                  <div>
+                    <h5>大模型对接</h5>
+                    <p>多模态大模型处方引擎对接及PC、移动端平台开发</p>
+                  </div>
+                </div>
+                <div class="highlight-item">
+                  <span class="hl-num">04</span>
+                  <div>
+                    <h5>一体化闭环</h5>
+                    <p>环境感知→智能识别→专家诊断→硬件联动→数据归档</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="project-tech">
+              <span>YOLOv8</span>
+              <span>STM32</span>
+              <span>ESP32</span>
+              <span>边缘计算</span>
+              <span>多传感器融合</span>
+              <span>大模型API</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="awards" class="section awards-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">AWARDS</span>
+          <h2>竞赛荣誉</h2>
+          <p class="section-subtitle">多项国家级与省级竞赛奖项获得者</p>
+        </div>
+        <div class="awards-timeline">
+          <div class="award-item national">
+            <div class="award-dot"></div>
+            <div class="award-date">2026.08</div>
+            <div class="award-content">
+              <span class="award-level national-level">国家级</span>
+              <h4>全国大学生电子设计竞赛 · 山东省二等奖</h4>
+              <p>团队负责人（1/3），完成硬件设计与算法实现</p>
+            </div>
+          </div>
+          <div class="award-item national">
+            <div class="award-dot"></div>
+            <div class="award-date">2026.07</div>
+            <div class="award-content">
+              <span class="award-level national-level">国家级</span>
+              <h4>全国大学生计算机设计大赛 · 物联网赛道全国三等奖</h4>
+              <p>团队负责人（1/6），主导系统架构与AI模块开发</p>
+            </div>
+          </div>
+          <div class="award-item national">
+            <div class="award-dot"></div>
+            <div class="award-date">2026.07</div>
+            <div class="award-content">
+              <span class="award-level national-level">国家级</span>
+              <h4>中国机器人及人工智能大赛 · 全国三等奖</h4>
+              <p>核心成员（2/3），负责嵌入式控制与算法优化</p>
+            </div>
+          </div>
+          <div class="award-item national">
+            <div class="award-dot"></div>
+            <div class="award-date">2026.06</div>
+            <div class="award-content">
+              <span class="award-level national-level first">国家级 · 一等奖</span>
+              <h4>西门子智能制造挑战赛 · 工业嵌入式一等奖</h4>
+              <p>团队负责人（1/3），主导嵌入式系统与工业应用开发</p>
+            </div>
+          </div>
+          <div class="award-item provincial">
+            <div class="award-dot"></div>
+            <div class="award-date">2026.04</div>
+            <div class="award-content">
+              <span class="award-level provincial-level">省级</span>
+              <h4>大学生新一代信息通信科技大赛（大唐杯） · 山东省二等奖</h4>
+              <p>团队负责人（1/2），5G通信技术应用与系统实现</p>
+            </div>
+          </div>
+          <div class="award-item provincial">
+            <div class="award-dot"></div>
+            <div class="award-date">2026.04</div>
+            <div class="award-content">
+              <span class="award-level provincial-level">省级</span>
+              <h4>蓝桥杯 · 嵌入式山东省二等奖</h4>
+              <p>个人赛，STM32嵌入式编程与算法设计</p>
+            </div>
+          </div>
+          <div class="award-item national">
+            <div class="award-dot"></div>
+            <div class="award-date">2025.08</div>
+            <div class="award-content">
+              <span class="award-level national-level">国家级</span>
+              <h4>全国大学生电子设计竞赛 · 山东省三等奖</h4>
+              <p>团队负责人（1/3）</p>
+            </div>
+          </div>
+          <div class="award-item national">
+            <div class="award-dot"></div>
+            <div class="award-date">2025.07</div>
+            <div class="award-content">
+              <span class="award-level national-level">国家级</span>
+              <h4>西门子工业嵌入式全国初赛 · 三等奖</h4>
+              <p>团队负责人（1/3）</p>
+            </div>
+          </div>
+          <div class="award-item provincial">
+            <div class="award-dot"></div>
+            <div class="award-date">2024.12</div>
+            <div class="award-content">
+              <span class="award-level provincial-level first">省级 · 一等奖</span>
+              <h4>全国大学生数学竞赛 · 山东省一等奖</h4>
+              <p>个人赛，数学分析与高等代数综合能力考核</p>
+            </div>
+          </div>
+          <div class="award-item provincial">
+            <div class="award-dot"></div>
+            <div class="award-date">—</div>
+            <div class="award-content">
+              <span class="award-level provincial-level">省级</span>
+              <h4>机器人及人工智能大赛 · 山东省二等奖</h4>
+              <p>机器人系统开发与AI算法集成</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="paper" class="section paper-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">PUBLICATIONS</span>
+          <h2>论文与知识产权</h2>
+          <p class="section-subtitle">EI会议论文 · 国家发明专利 · 软件著作权</p>
+        </div>
+
+        <div class="ip-grid">
+          <div class="ip-card paper">
+            <div class="ip-icon">📄</div>
+            <span class="ip-type">EI 会议论文</span>
+            <h4>Research on Pulmonary Nodule Detection Based on Improved YOLOv8 Attention Mechanism and Multi-scale Feature Fusion</h4>
+            <p class="ip-desc">基于改进YOLOv8注意力机制与多尺度特征融合的肺结节检测研究</p>
+            <div class="ip-highlights">
+              <div class="ip-highlight"><b>mAP@0.5</b><span>92.5%</span></div>
+              <div class="ip-highlight"><b>灵敏度</b><span>91.3%</span></div>
+              <div class="ip-highlight"><b>假阳性率</b><span>1.5/scan</span></div>
+            </div>
+            <div class="ip-tags">
+              <span>CBAM注意力</span>
+              <span>ASFF特征融合</span>
+              <span>Focal Loss</span>
+              <span>LUNA16</span>
+            </div>
+          </div>
+
+          <div class="ip-card patent">
+            <div class="ip-icon">💡</div>
+            <span class="ip-type">国家发明专利</span>
+            <h4>基于深度学习的单片机通信信号优化方法</h4>
+            <p class="ip-desc">零浮点零乘法纯整型信号去噪架构，汉明重量稀疏度正则化，第二发明人</p>
+            <div class="ip-features">
+              <div>✅ 移位+异或高效逻辑</div>
+              <div>✅ 突发强噪声阻尼复位</div>
+              <div>✅ 纯整型高精度重构</div>
+            </div>
+          </div>
+
+          <div class="ip-card soft">
+            <div class="ip-icon">🖥️</div>
+            <span class="ip-type">计算机软件著作权 ×2</span>
+            <h4>上位机软件著作权登记</h4>
+            <p class="ip-desc">两项关于嵌入式上位机的软件著作权，涵盖数据采集、信号处理与可视化交互功能</p>
+            <div class="ip-features">
+              <div>✅ 串口/USB数据通信</div>
+              <div>✅ 实时信号可视化</div>
+              <div>✅ 参数配置与归档</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="paper-detail">
+          <h3>论文核心创新点</h3>
+          <div class="detail-grid">
+            <div class="detail-item">
+              <span class="detail-num">01</span>
+              <div>
+                <h5>CBAM注意力模块集成</h5>
+                <p>在Backbone与Neck中嵌入CBAM通道-空间双重注意力，增强结节区域特征响应，抑制血管胸膜背景干扰，mAP提升4.4个百分点</p>
+              </div>
+            </div>
+            <div class="detail-item">
+              <span class="detail-num">02</span>
+              <div>
+                <h5>多尺度特征融合改进</h5>
+                <p>新增浅层特征直连路径 + ASFF自适应权重融合模块，微小结节（&lt;3mm）灵敏度达89.2%，较基线提升13.9个百分点</p>
+              </div>
+            </div>
+            <div class="detail-item">
+              <span class="detail-num">03</span>
+              <div>
+                <h5>损失函数优化</h5>
+                <p>小目标CIoU权重提升至1.5，引入Focal Loss缓解样本不平衡（结节&lt;1%），综合mAP@0.5达92.5%</p>
+              </div>
+            </div>
+            <div class="detail-item">
+              <span class="detail-num">04</span>
+              <div>
+                <h5>高效推理部署</h5>
+                <p>仅增0.8G FLOPs，推理速度32 FPS（640×640 CT图像），满足临床实时检测需求</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section contact-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">CONTACT</span>
+          <h2>联系我</h2>
+          <p class="section-subtitle">期待与您交流合作，共同探索技术前沿</p>
+        </div>
+        <div class="contact-card">
+          <div class="contact-info">
+            <div class="contact-item">
+              <div class="contact-icon">
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              </div>
+              <div>
+                <span>邮箱</span>
+                <a href="mailto:guoxiaolong28@163.com">guoxiaolong28@163.com</a>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              </div>
+              <div>
+                <span>手机</span>
+                <a href="tel:18953635446">18953635446</a>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              </div>
+              <div>
+                <span>地址</span>
+                <p>山东省潍坊市</p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+              </div>
+              <div>
+                <span>研究领域</span>
+                <p>嵌入式开发 · 深度学习 · 计算机视觉 · 工业物联网</p>
+              </div>
+            </div>
+          </div>
+          <div class="contact-banner">
+            <div class="banner-bg"></div>
+            <div class="banner-content">
+              <h3>曲阜师范大学 · 通信工程</h3>
+              <p>学院ARM实验室核心成员 · 大创主持人</p>
+              <div class="banner-stats">
+                <div><b>Top 4%</b><span>专业排名</span></div>
+                <div><b>10+</b><span>竞赛奖项</span></div>
+                <div><b>3</b><span>知识产权</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
   </main>
 
   <footer class="footer">
-    <p>© 2026 你的名字。此页面由 HTML/CSS/JavaScript 制作。</p>
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-left">
+          <h4>郭晓龙</h4>
+          <p>嵌入式系统开发 &amp; AI算法研究者</p>
+        </div>
+        <div class="footer-right">
+          <p>📧 guoxiaolong28@163.com</p>
+          <p>📱 18953635446</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 郭晓龙. All rights reserved. · 使用 HTML / CSS / JavaScript 构建</p>
+      </div>
+    </div>
   </footer>
+
+  <button class="back-to-top" id="backToTop" aria-label="返回顶部">
+    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
 
   <script src="script.js"></script>
 </body>
