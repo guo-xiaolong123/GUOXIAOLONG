@@ -3,9 +3,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const navToggle = document.querySelector(".nav-toggle");
   const navLinks = document.querySelector(".nav-links");
   const backToTop = document.getElementById("backToTop");
-  const skillFills = document.querySelectorAll(".skill-fill");
-  const statNums = document.querySelectorAll(".stat-num");
-  const gpaFill = document.querySelector(".gpa-fill");
 
   navToggle.addEventListener("click", () => {
     navLinks.classList.toggle("active");
@@ -52,80 +49,78 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   const animateSkillBars = () => {
-    skillFills.forEach((fill) => {
-      const width = fill.getAttribute("style")?.match(/width:\s*(\d+)%/)?.[1] || "0";
+    document.querySelectorAll(".skill-fill").forEach((fill) => {
+      const w = fill.getAttribute("data-width") || "0";
       fill.style.width = "0%";
       requestAnimationFrame(() => {
         setTimeout(() => {
-          fill.style.width = width + "%";
-        }, 100);
+          fill.style.width = w + "%";
+        }, 120);
       });
     });
+    const gpaFill = document.querySelector(".gpa-fill");
     if (gpaFill) {
-      const width = gpaFill.getAttribute("style")?.match(/width:\s*(\d+)%/)?.[1] || "0";
+      const w = gpaFill.getAttribute("data-width") || "0";
       gpaFill.style.width = "0%";
       requestAnimationFrame(() => {
         setTimeout(() => {
-          gpaFill.style.width = width + "%";
-        }, 300);
+          gpaFill.style.width = w + "%";
+        }, 320);
       });
     }
   };
 
   const animateNumbers = () => {
-    statNums.forEach((el) => {
-      const text = el.textContent.trim();
-      if (!text) return;
-      const isFloat = text.includes(".");
-      const target = parseFloat(text);
+    document.querySelectorAll(".stat-num").forEach((el) => {
+      const targetStr = el.getAttribute("data-target");
+      const suffix = el.getAttribute("data-suffix") || "";
+      if (!targetStr) return;
+      const target = parseFloat(targetStr);
       if (isNaN(target)) return;
-      const suffix = text.replace(/[0-9.]/g, "");
-      const duration = 1400;
+      const isFloat = targetStr.includes(".");
+      const duration = 1500;
       const start = performance.now();
-      el.textContent = isFloat ? "0.00" : "0";
       const tick = (now) => {
         const progress = Math.min((now - start) / duration, 1);
         const eased = 1 - Math.pow(1 - progress, 3);
         const current = target * eased;
         el.textContent = (isFloat ? current.toFixed(2) : Math.round(current)) + suffix;
         if (progress < 1) requestAnimationFrame(tick);
-        else el.textContent = text;
+        else el.textContent = targetStr + suffix;
       };
       requestAnimationFrame(tick);
     });
   };
 
-  const observerOptions = {
-    threshold: 0.15,
-    rootMargin: "0px 0px -60px 0px",
-  };
-
   const revealEls = document.querySelectorAll(
-    ".section-header, .about-card, .about-stats, .edu-card, .skill-category, .skill-tags, .research-card, .project-main, .award-item, .ip-card, .paper-detail, .contact-card"
+    ".section-header, .about-card, .edu-card, .skill-category, .skill-tags, .research-card, .project-main, .award-item, .ip-card, .paper-detail, .contact-card"
   );
   revealEls.forEach((el) => el.classList.add("reveal"));
 
+  const observerOptions = { threshold: 0.14, rootMargin: "0px 0px -60px 0px" };
+  let statsAnimated = false;
+  let skillsAnimated = false;
+
   const io = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("visible");
-        if (entry.target.classList.contains("skills-grid") ||
-            entry.target.closest(".skills-section")) {
-          animateSkillBars();
-        }
-        if (entry.target.classList.contains("about-stats") ||
-            entry.target.closest(".about-section")) {
-          animateNumbers();
-        }
-        io.unobserve(entry.target);
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add("visible");
+      const section = entry.target.closest("section");
+      if (!statsAnimated && section && section.id === "about") {
+        animateNumbers();
+        statsAnimated = true;
       }
+      if (!skillsAnimated && section && section.id === "skills") {
+        animateSkillBars();
+        skillsAnimated = true;
+      }
+      io.unobserve(entry.target);
     });
   }, observerOptions);
 
   revealEls.forEach((el) => io.observe(el));
-  document.querySelectorAll(".skills-grid, .about-stats").forEach((el) => io.observe(el));
 
-  if ("IntersectionObserver" in window === false) {
+  if (!("IntersectionObserver" in window)) {
     revealEls.forEach((el) => el.classList.add("visible"));
     animateSkillBars();
     animateNumbers();
