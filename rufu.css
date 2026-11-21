@@ -1,0 +1,243 @@
+/* ============================================================
+   运河儒风 · 智能讲解与行程定制
+   配色继承原版红金体系，仅新增 rf- 前缀组件，不改动原有样式
+   ============================================================ */
+:root {
+  --rf-ink: var(--ink, #231a1a);
+  --rf-red-deep: var(--red-deep, #8f1d22);
+  --rf-red: var(--red, #b8352e);
+  --rf-gold: var(--gold, #f5c042);
+  --rf-gold-deep: var(--gold-deep, #c9932a);
+  --rf-paper: var(--paper, #fbf6ec);
+  --rf-shadow: 0 6px 24px rgba(35, 26, 26, .14);
+}
+
+@keyframes rfUp { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+@keyframes rfPulse { 0%, 100% { box-shadow: 0 0 0 0 rgba(245, 192, 66, .55); } 50% { box-shadow: 0 0 0 12px rgba(245, 192, 66, 0); } }
+@keyframes rfShine { from { background-position: -160% 0; } to { background-position: 260% 0; } }
+@keyframes rfDot { 0%, 80%, 100% { opacity: .25; } 40% { opacity: 1; } }
+
+.rf-in { animation: rfUp .5s both; }
+
+/* ---------- 板块标题 ---------- */
+.rf-head {
+  display: flex; align-items: center; gap: 8px;
+  margin: 22px 16px 10px; color: var(--rf-red-deep);
+}
+.rf-head .orn { color: var(--rf-gold-deep); font-size: 13px; }
+.rf-head h2 { font-size: 18px; letter-spacing: 1px; font-family: "STKaiti", "KaiTi", serif; }
+.rf-head .aside { margin-left: auto; font-size: 11px; color: #9c8a6a; }
+
+/* ---------- 通用面板 ---------- */
+.rf-panel {
+  margin: 0 16px; padding: 16px;
+  background: #fff;
+  border: 1px solid rgba(201, 147, 42, .35);
+  border-radius: 16px;
+  box-shadow: var(--rf-shadow);
+  position: relative;
+  overflow: hidden;
+}
+.rf-panel::before {
+  content: ""; position: absolute; inset: 0 auto 0 0; width: 4px;
+  background: linear-gradient(180deg, var(--rf-red), var(--rf-gold));
+}
+.rf-panel + .rf-panel { margin-top: 12px; }
+.rf-panel h3 { font-size: 15px; margin-bottom: 4px; }
+.rf-muted { font-size: 12px; color: #8a7c66; line-height: 1.7; }
+.rf-note {
+  margin-top: 12px; padding: 10px 12px; font-size: 11.5px; line-height: 1.7;
+  color: #7c6b52; background: rgba(245, 192, 66, .12);
+  border-left: 3px solid var(--rf-gold); border-radius: 0 8px 8px 0;
+}
+
+/* ---------- 表单 ---------- */
+.rf-form { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin-top: 12px; }
+.rf-field { display: flex; flex-direction: column; gap: 5px; }
+.rf-field > span { font-size: 11.5px; color: #96866c; letter-spacing: .5px; }
+.rf-field select, .rf-field input {
+  width: 100%; padding: 10px 12px; font: inherit; font-size: 13.5px;
+  color: var(--rf-ink); background: var(--rf-paper);
+  border: 1px solid rgba(201, 147, 42, .45); border-radius: 10px;
+  -webkit-appearance: none; appearance: none;
+}
+.rf-field select:focus, .rf-field input:focus { outline: 2px solid rgba(184, 53, 46, .35); }
+
+/* ---------- 按钮 ---------- */
+.rf-btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+  padding: 11px 16px; font: inherit; font-size: 13.5px; font-weight: 600;
+  color: #fff; text-decoration: none; border: 0; border-radius: 999px; cursor: pointer;
+  background: linear-gradient(135deg, var(--rf-red-deep), var(--rf-red));
+  box-shadow: 0 4px 14px rgba(143, 29, 34, .28);
+  transition: transform .18s, box-shadow .18s;
+}
+.rf-btn:active { transform: scale(.97); }
+.rf-btn.ghost {
+  color: var(--rf-red-deep); background: #fff;
+  border: 1px solid rgba(184, 53, 46, .4); box-shadow: none;
+}
+.rf-btn.gold {
+  color: #4a2f00; background: linear-gradient(135deg, var(--rf-gold), #ffd97a);
+  box-shadow: 0 4px 14px rgba(201, 147, 42, .3);
+}
+.rf-btn.mini { padding: 7px 12px; font-size: 12px; }
+.rf-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+.rf-go {
+  grid-column: 1 / -1;
+  padding: 13px; font-size: 15px; border-radius: 12px; position: relative; overflow: hidden;
+}
+.rf-go::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(100deg, transparent 20%, rgba(255, 255, 255, .45), transparent 80%);
+  background-size: 200% 100%; animation: rfShine 2.6s linear infinite;
+}
+
+/* ---------- 快捷条件 ---------- */
+.rf-quicks { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+.rf-chip {
+  padding: 6px 12px; font-size: 12px; cursor: pointer;
+  color: #8a5a2b; background: rgba(245, 192, 66, .14);
+  border: 1px solid rgba(201, 147, 42, .5); border-radius: 999px;
+  transition: all .2s;
+}
+.rf-chip.on { color: #fff; background: linear-gradient(135deg, var(--rf-red-deep), var(--rf-red)); border-color: transparent; }
+
+/* ---------- 路书摘要 ---------- */
+.rf-sum {
+  display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 12px;
+}
+.rf-sum span {
+  flex: 1 1 auto; min-width: 84px; padding: 10px 8px; text-align: center;
+  background: linear-gradient(180deg, rgba(245, 192, 66, .18), rgba(245, 192, 66, .04));
+  border: 1px solid rgba(201, 147, 42, .3); border-radius: 12px;
+}
+.rf-sum b { display: block; font-size: 17px; color: var(--rf-red-deep); }
+.rf-sum i { font-style: normal; font-size: 11px; color: #8a7c66; }
+
+/* ---------- 时间轴站点 ---------- */
+.rf-tl { list-style: none; position: relative; padding-left: 26px; margin-top: 6px; }
+.rf-tl::before {
+  content: ""; position: absolute; left: 9px; top: 8px; bottom: 8px; width: 2px;
+  background: linear-gradient(180deg, var(--rf-red), var(--rf-gold));
+  opacity: .5;
+}
+.rf-stop {
+  position: relative; margin-bottom: 12px; padding: 12px 14px;
+  background: #fff; border: 1px solid rgba(201, 147, 42, .3); border-radius: 14px;
+  box-shadow: 0 3px 12px rgba(35, 26, 26, .06);
+}
+.rf-stop::before {
+  content: attr(data-i); position: absolute; left: -26px; top: 14px;
+  width: 22px; height: 22px; line-height: 22px; text-align: center;
+  font-size: 11px; font-weight: 700; color: #fff;
+  background: linear-gradient(135deg, var(--rf-red-deep), var(--rf-red));
+  border-radius: 50%; box-shadow: 0 0 0 3px rgba(245, 192, 66, .35);
+}
+.rf-stop h4 { font-size: 14.5px; display: flex; align-items: center; gap: 6px; }
+.rf-stop h4 em { font-style: normal; font-size: 11px; font-weight: 500; color: #a08a63; margin-left: auto; }
+.rf-tags { display: flex; flex-wrap: wrap; gap: 5px; margin: 7px 0; }
+.rf-tag {
+  padding: 3px 9px; font-size: 11px; border-radius: 999px;
+  color: var(--rf-red-deep); background: rgba(184, 53, 46, .08);
+  border: 1px solid rgba(184, 53, 46, .18);
+}
+.rf-tag.gold { color: #8a5a2b; background: rgba(245, 192, 66, .18); border-color: rgba(201, 147, 42, .35); }
+.rf-stop p { font-size: 12.5px; line-height: 1.75; color: #4d4237; }
+
+/* ---------- 讲解卡 ---------- */
+.rf-say {
+  margin-top: 9px; padding: 10px 12px; font-size: 12.5px; line-height: 1.8;
+  color: #40342a; background: linear-gradient(135deg, rgba(143, 29, 34, .05), rgba(245, 192, 66, .1));
+  border-radius: 10px; border: 1px dashed rgba(201, 147, 42, .5);
+}
+.rf-say b { color: var(--rf-red-deep); }
+.rf-ask-row { display: flex; gap: 8px; margin-top: 10px; }
+.rf-ask-row input { flex: 1; padding: 10px 12px; font: inherit; font-size: 13px; border: 1px solid rgba(201, 147, 42, .45); border-radius: 10px; background: var(--rf-paper); }
+.rf-ans { margin-top: 10px; font-size: 12.5px; line-height: 1.85; }
+.rf-ans .rf-dots { display: inline-block; }
+.rf-ans .rf-dots i { display: inline-block; width: 5px; height: 5px; margin-left: 3px; background: var(--rf-gold-deep); border-radius: 50%; animation: rfDot 1.2s infinite; }
+.rf-ans .rf-dots i:nth-child(2) { animation-delay: .2s; }
+.rf-ans .rf-dots i:nth-child(3) { animation-delay: .4s; }
+
+/* ---------- 分段切换 ---------- */
+.rf-seg { display: flex; gap: 6px; flex-wrap: wrap; margin: 8px 0 4px; }
+.rf-seg button {
+  flex: 1 1 auto; padding: 8px 10px; font: inherit; font-size: 12.5px; cursor: pointer;
+  color: #8a6a3b; background: #fff; border: 1px solid rgba(201, 147, 42, .45); border-radius: 10px;
+}
+.rf-seg button.on { color: #fff; background: linear-gradient(135deg, var(--rf-red-deep), var(--rf-red)); border-color: transparent; }
+
+/* ---------- 收藏与进度 ---------- */
+.rf-fav {
+  margin-left: auto; padding: 4px 10px; font: inherit; font-size: 11.5px; cursor: pointer;
+  color: var(--rf-gold-deep); background: #fff; border: 1px solid rgba(201, 147, 42, .5); border-radius: 999px;
+}
+.rf-fav.on { color: #fff; background: linear-gradient(135deg, var(--rf-gold-deep), var(--rf-gold)); border-color: transparent; }
+.rf-bar { height: 8px; border-radius: 999px; background: rgba(143, 29, 34, .12); overflow: hidden; }
+.rf-bar > i { display: block; height: 100%; width: 0; border-radius: 999px; background: linear-gradient(90deg, var(--rf-red), var(--rf-gold)); transition: width .6s; }
+.rf-rows { margin-top: 10px; font-size: 12.5px; line-height: 2; color: #4d4237; }
+.rf-rows em { font-style: normal; color: #a08a63; font-size: 11.5px; }
+
+/* ---------- 拍照识景（示范样本） ---------- */
+.rf-shots { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 10px; }
+.rf-shot {
+  padding: 12px 6px; text-align: center; cursor: pointer; font-size: 11.5px; color: #6b5b45;
+  background: linear-gradient(160deg, rgba(143, 29, 34, .08), rgba(245, 192, 66, .18));
+  border: 1px solid rgba(201, 147, 42, .35); border-radius: 12px;
+}
+.rf-shot span { display: block; font-size: 26px; margin-bottom: 4px; }
+.rf-shot.picked { outline: 2px solid var(--rf-red); }
+
+/* ---------- 底部弹层 ---------- */
+.rf-mask {
+  position: fixed; inset: 0; z-index: 90; display: none;
+  background: rgba(28, 18, 12, .5); backdrop-filter: blur(2px);
+}
+.rf-mask.show { display: block; animation: rfUp .22s; }
+.rf-sheet {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 91;
+  max-height: 86vh; overflow-y: auto; display: none;
+  padding: 18px 18px calc(env(safe-area-inset-bottom) + 18px);
+  background: var(--rf-paper); border-radius: 22px 22px 0 0;
+  box-shadow: 0 -10px 40px rgba(35, 26, 26, .3);
+}
+.rf-sheet.show { display: block; animation: rfUp .3s; }
+.rf-sheet h2 { font-size: 18px; font-family: "STKaiti", "KaiTi", serif; letter-spacing: 1px; }
+.rf-sheet .rf-x {
+  position: absolute; right: 12px; top: 12px; width: 32px; height: 32px;
+  font: inherit; font-size: 15px; color: #8a7c66; cursor: pointer;
+  background: #fff; border: 1px solid rgba(201, 147, 42, .4); border-radius: 50%;
+}
+.rf-seal {
+  display: inline-block; margin-left: 8px; padding: 2px 8px; vertical-align: middle;
+  font-size: 10.5px; color: #fff; letter-spacing: 1px;
+  background: linear-gradient(135deg, var(--rf-red-deep), var(--rf-red)); border-radius: 4px;
+}
+
+/* ---------- 悬浮入口 ---------- */
+.rf-fab {
+  position: fixed; right: 14px; bottom: calc(env(safe-area-inset-bottom) + 84px); z-index: 40;
+  padding: 13px 18px; font: inherit; font-size: 13.5px; font-weight: 600; color: #fff; cursor: pointer;
+  background: linear-gradient(135deg, var(--rf-red-deep), var(--rf-red) 55%, var(--rf-gold-deep));
+  border: 0; border-radius: 999px; box-shadow: 0 8px 22px rgba(143, 29, 34, .38);
+  animation: rfPulse 2.8s infinite;
+}
+.rf-fab:active { transform: scale(.96); }
+
+/* ---------- 首页新增卡片 ---------- */
+.rf-newcard { position: relative; }
+.rf-newcard::after {
+  content: "NEW"; position: absolute; right: 12px; top: 12px;
+  padding: 2px 7px; font-size: 10px; color: #fff; letter-spacing: 1px;
+  background: linear-gradient(135deg, var(--rf-red-deep), var(--rf-gold-deep)); border-radius: 999px;
+}
+
+@media (min-width: 1024px) {
+  .rf-sheet {
+    left: 50%; right: auto; bottom: auto; top: 50%;
+    width: 720px; max-height: 82vh;
+    transform: translate(-50%, -50%); border-radius: 22px;
+  }
+  .rf-shots { grid-template-columns: repeat(6, 1fr); }
+}
